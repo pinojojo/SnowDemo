@@ -10,7 +10,7 @@ void renderer::ModelRenderer::Draw(bool wire_mode)
    
     if (anti_aliased_mode_)
     {
-        std::cout << "A" << std::endl;
+        //std::cout << "A" << std::endl;
         // multi sampling
         glBindFramebuffer(GL_FRAMEBUFFER, aa_fbo_);
         glClearColor((float)39 / 255, (float)39 / 255, (float)42 / 255, 1.0f);
@@ -31,7 +31,7 @@ void renderer::ModelRenderer::Draw(bool wire_mode)
     }
     else 
     {
-        std::cout << "B" << std::endl;
+        //std::cout << "B" << std::endl;
 
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
         glEnable(GL_DEPTH_TEST);

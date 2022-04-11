@@ -29,4 +29,24 @@ void GLCore::Utils::PerspectiveCamera::Update(glm::vec3 position, glm::vec3 fron
 
 }
 
+void GLCore::Utils::PerspectiveCamera::SetAspectRatio(float ratio)
+{
+	aspect_ratio_ = ratio;
+}
+
+void GLCore::Utils::PerspectiveCamera::SetFOVY(float fovy)
+{
+	fov_y_ = fovy;
+}
+
+void GLCore::Utils::PerspectiveCamera::SetPosition(glm::vec3 posiiton)
+{
+	position_ = posiiton;
+}
+
+void GLCore::Utils::PerspectiveCamera::SetStare(glm::vec3 stare)
+{
+	stare_ = stare;
+}
+
 

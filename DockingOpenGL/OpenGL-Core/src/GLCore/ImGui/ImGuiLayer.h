@@ -21,9 +21,6 @@ namespace GLCore {
 
 		virtual void OnEvent(Event& event);
 
-		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
-		bool OnWindowResizePressed(WindowResizeEvent& e);
-
 
 		int win_width_;
 		int win_height_;

@@ -2,11 +2,11 @@
 #include <GLCore.h>
 #include <GLCoreUtils.h>
 
-class SliceVisualizer : public GLCore::ImGuiLayer
+class SliceViewer:public GLCore::ImGuiLayer
 {
 public:
-	SliceVisualizer();
-	virtual ~SliceVisualizer();
+	SliceViewer();
+	virtual ~SliceViewer();
 
 	virtual void OnAttach() override;
 	virtual void OnDetach() override;
@@ -14,7 +14,11 @@ public:
 	virtual void OnUpdate(GLCore::Timestep ts) override;
 	virtual void OnImGuiRender() override;
 
-private:
+
+
+
+
+
 
 };
 

@@ -94,15 +94,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="SliceVisualizer.h" />
     <ClInclude Include="src\ContainerLayer.h" />
-    <ClInclude Include="src\SliceVisualizer.h" />
+    <ClInclude Include="src\SliceViewer.h" />
     <ClInclude Include="src\ViewerLayerer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SliceVisualizer.cpp" />
     <ClCompile Include="src\ContainerLayer.cpp" />
     <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\SliceViewer.cpp" />
     <ClCompile Include="src\ViewerLayerer.cpp" />
   </ItemGroup>
   <ItemGroup>

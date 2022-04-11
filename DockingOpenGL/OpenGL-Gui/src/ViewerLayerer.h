@@ -3,6 +3,10 @@
 #include <GLCore.h>
 #include <GLCoreUtils.h>
 
+#include "GLCore/Events/ApplicationEvent.h"
+#include "GLCore/Events/KeyEvent.h"
+#include "GLCore/Events/MouseEvent.h"
+
 #include "../../SnowRenderer/ModelRenderer.h"
 
 
@@ -18,7 +22,15 @@ public:
 	virtual void OnEvent(GLCore::Event& event) override;
 	virtual void OnUpdate(GLCore::Timestep ts) override;
 	virtual void OnImGuiRender() override;
+
+
+
 private:
+
+	bool OnMouseButtonPressedEvent(GLCore::MouseButtonPressedEvent& e);
+	bool OnMouseMovedEvent(GLCore::MouseMovedEvent& e);
+
+
 	void CreateVAO();
 	void CreateFBO(int width, int height);
 	void ResizeFBO(int width, int height);
@@ -31,7 +43,7 @@ private:
 
 private:
 	int frame_loop_id_ = 0;
-
+	bool viewer_focused_;
 	GLuint vao_ = 0;
 	GLuint vbo_ = 0;
 	GLuint fbo_ = 0;
@@ -49,6 +61,7 @@ private:
 	GLCore::Utils::Shader* shader_;
 
 	GLCore::Utils::PerspectiveCamera camera_;
+	GLCore::Utils::PerspectiveCameraController camera_controller_;
 	glm::vec3 camera_position_ = glm::vec3(0,100,40);
 	glm::vec3 camera_stare_ = glm::vec3(0);
 	glm::vec3 light_position_=glm::vec3(-5.0f,-5.0f,100.f);

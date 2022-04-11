@@ -17,6 +17,7 @@ void ViewerLayerer::OnAttach()
     CreateFBO(fbo_width_, fbo_height_);
     CreateShader();
 
+    camera_controller_.fov_y_ = 45.f;
     
     model_renderer_.Init("D:\\dev-slicer\\UMS5_Fresnel_lens.stl");
 }
@@ -27,13 +28,12 @@ void ViewerLayerer::OnDetach()
 
 void ViewerLayerer::OnEvent(GLCore::Event& event)
 {
+
+    camera_controller_.OnEvent(event);
+
 	EventDispatcher dispatcher(event);
-	dispatcher.Dispatch<MouseButtonPressedEvent>(
-		[&](MouseButtonPressedEvent& e)
-		{
-			std::cout << "viewer pressed" << std::endl;
-			return false;
-		});
+	dispatcher.Dispatch<MouseButtonPressedEvent>(GLCORE_BIND_EVENT_FN(ViewerLayerer::OnMouseButtonPressedEvent));
+	dispatcher.Dispatch<MouseMovedEvent>(GLCORE_BIND_EVENT_FN(ViewerLayerer::OnMouseMovedEvent));
 }
 
 void ViewerLayerer::OnUpdate(GLCore::Timestep ts)
@@ -42,8 +42,8 @@ void ViewerLayerer::OnUpdate(GLCore::Timestep ts)
     {
         frame_loop_id_ = 0;
     }
-    //DrawCube(viewer_panel_width_,viewer_panel_height_);
 
+    // Updating renderer and get new result 
     model_renderer_.SetAspect(viewer_panel_width_, viewer_panel_height_);
     model_renderer_.SetCamera(camera_position_, camera_stare_, glm::radians(fovy_));
     model_renderer_.SetLight(light_position_, light_color_);
@@ -51,7 +51,6 @@ void ViewerLayerer::OnUpdate(GLCore::Timestep ts)
     model_renderer_.SetObjectColor(object_color_);
     model_renderer_.SetWireMode(wire_mode_);
     model_renderer_.SetAAMode(aa_mode_);
-
 
     model_renderer_.Draw(wire_mode_);
    
@@ -135,13 +134,26 @@ void ViewerLayerer::OnImGuiRender()
     }
 
 
+    // Imgui demo window
     ImGui::ShowDemoWindow();
 
    
-	// viewer window 
+	//viewer window 
     {
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0.,0 });
         ImGui::Begin("viewer");
+
+        if (ImGui::IsWindowFocused())
+        {
+            viewer_focused_ = true;
+        }
+        else
+        {
+            viewer_focused_ = false;
+
+        } 
+        
+
         // get panel size
         ImVec2 viewer_panel_size = ImGui::GetContentRegionAvail();
         viewer_panel_width_ = viewer_panel_size.x;
@@ -150,9 +162,27 @@ void ViewerLayerer::OnImGuiRender()
         ImGui::Image((void*)(intptr_t)model_renderer_.GetRendered(), ImVec2(viewer_panel_width_, viewer_panel_height_), ImVec2{ 0,1 }, ImVec2{ 1, 0 });
 
         ImGui::End();
-        ImGui::PopStyleVar();
+        ImGui::PopStyleVar();  
     }
    
+}
+
+
+//
+//void ViewerLayerer::OnMouseButtonPressedEvent(MouseButtonPressedEvent& e)
+//{
+//}
+
+bool ViewerLayerer::OnMouseButtonPressedEvent(GLCore::MouseButtonPressedEvent& e)
+{
+    //std::cout <<"aas" << e.GetMouseButton() << std::endl;
+    return false;
+}
+
+bool ViewerLayerer::OnMouseMovedEvent(GLCore::MouseMovedEvent& e)
+{
+    //std::cout << "ffg" << e.GetX() << ", " << e.GetY() << std::endl;
+    return false;
 }
 
 void ViewerLayerer::CreateVAO()

@@ -88,22 +88,12 @@ namespace GLCore {
 
 	void ImGuiLayer::OnEvent(Event& event)
 	{
-		EventDispatcher dispatcher(event);
-		dispatcher.Dispatch<MouseButtonPressedEvent>(GLCORE_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressed));
-		dispatcher.Dispatch<WindowResizeEvent>(GLCORE_BIND_EVENT_FN(ImGuiLayer::OnWindowResizePressed));
+		//EventDispatcher dispatcher(event);
+		//dispatcher.Dispatch<MouseButtonPressedEvent>(GLCORE_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressed));
+		//dispatcher.Dispatch<WindowResizeEvent>(GLCORE_BIND_EVENT_FN(ImGuiLayer::OnWindowResizePressed));
 
-	}
+		
 
-	bool ImGuiLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
-	{
-		ImGuiIO io = ImGui::GetIO();
-		return io.WantCaptureMouse;
-	}
-	bool ImGuiLayer::OnWindowResizePressed(WindowResizeEvent& e)
-	{
-		/*ImGuiIO io = ImGui::GetIO();
-		return io.WantCaptureMouse;*/
-		return false;
 	}
 
 }

@@ -2,6 +2,7 @@
 #include "ContainerLayer.h"
 
 #include "ViewerLayerer.h"
+#include "SliceViewer.h"
 
 //#include "SliceVisualizer.h"
 
@@ -17,7 +18,7 @@ public:
 		
 		PushLayer(new ViewerLayerer());
 
-
+		PushLayer(new SliceViewer());
 
 	}
 };

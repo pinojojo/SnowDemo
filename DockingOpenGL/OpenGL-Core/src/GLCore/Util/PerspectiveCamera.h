@@ -14,9 +14,10 @@ namespace GLCore::Utils {
 
 		void SetProjection(float fvo_y,float aspect_ratio,float z_near,float z_far);
 		void SetView(glm::vec3 camera_position,glm::vec3 look_at,glm::vec3 camera_up);
-
-		
-
+		void SetAspectRatio(float ratio);
+		void SetFOVY(float fovy);
+		void SetPosition(glm::vec3 posiiton);
+		void SetStare(glm::vec3 stare);
 		
 		const glm::mat4& GetProjectionMatrix() const { return mat_projection_; }
 		const glm::mat4& GetViewMatrix() const { return mat_view_; }
@@ -31,6 +32,7 @@ namespace GLCore::Utils {
 
 		// camera status
 		glm::vec3 position_;
+		glm::vec3 stare_;
 		glm::vec3 front_;
 		glm::vec3 up_;
 		glm::vec3 right_;
