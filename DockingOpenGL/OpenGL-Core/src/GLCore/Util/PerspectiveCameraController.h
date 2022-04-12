@@ -16,8 +16,6 @@ namespace GLCore::Utils {
 	public:
 		PerspectiveCameraController();
 
-
-
 		void OnUpdate(Timestep ts);
 		void OnEvent(Event& e);
 
@@ -26,30 +24,35 @@ namespace GLCore::Utils {
 		PerspectiveCamera& GetCamera(){ return camera_; }
 		const PerspectiveCamera& GetCamera() const { return camera_; }
 
-		float aspect_ratio_;
-		glm::vec3 camera_position_;
-		glm::vec3 camera_stare_;
-		float fov_y_;
-		float z_near = 0.01f;
-		float z_far = 500.f;
+		
+		
 
 		
 	private:
 		bool OnMouseScrolled(MouseScrolledEvent& e); // zoom in/out
-
 		bool OnMousePressed(MouseButtonPressedEvent& e); 
 		bool OnMouseReleased(MouseButtonReleasedEvent& e); 
-
 		bool OnMouseMoved(MouseMovedEvent& e); // move camera position
 		
 
 	private:
 		PerspectiveCamera camera_;
-		bool  left_pressed_=false;
-		bool  left_pressed_pos_recorded_ = false;
-		glm::vec2 left_pressed_pos_;
+
+		// Pressed Position
+		bool				left_pressed_=false;
+		bool				left_pressed_pos_recorded_ = false;
+		glm::vec2			left_pressed_pos_;
 		
-	
+
+	public:
+		// 
+		float			    aspect_ratio_;
+		glm::vec3			camera_position_;
+		glm::vec3			camera_stare_;
+		float				fov_y_;
+
+		float z_near = 0.01f;
+		float z_far = 500.f;
 
 	};
 

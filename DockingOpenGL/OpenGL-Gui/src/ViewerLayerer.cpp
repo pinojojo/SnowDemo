@@ -19,7 +19,7 @@ void ViewerLayerer::OnAttach()
 
     camera_controller_.fov_y_ = 45.f;
     
-    model_renderer_.Init("D:\\dev-slicer\\UMS5_Fresnel_lens.stl");
+    model_renderer_.Init("../Resources/models/UMS5_Fresnel_lens.stl");
 }
 
 void ViewerLayerer::OnDetach()
@@ -28,9 +28,12 @@ void ViewerLayerer::OnDetach()
 
 void ViewerLayerer::OnEvent(GLCore::Event& event)
 {
+    if (viewer_focused_)
+    {
+        camera_controller_.OnEvent(event);
 
-    camera_controller_.OnEvent(event);
-
+    }
+    
 	EventDispatcher dispatcher(event);
 	dispatcher.Dispatch<MouseButtonPressedEvent>(GLCORE_BIND_EVENT_FN(ViewerLayerer::OnMouseButtonPressedEvent));
 	dispatcher.Dispatch<MouseMovedEvent>(GLCORE_BIND_EVENT_FN(ViewerLayerer::OnMouseMovedEvent));

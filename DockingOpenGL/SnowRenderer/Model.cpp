@@ -39,7 +39,12 @@ void renderer::Model::LoadModel(string path)
 	std::vector<float> coords, normals;
 	std::vector<unsigned int> tris, solids;
 
-	stl_reader::ReadStlFile(path.c_str(), coords, normals, tris, solids);
+	bool readed=stl_reader::ReadStlFile(path.c_str(), coords, normals, tris, solids);
+	if (!readed)
+	{
+		std::cout << "Error: cannot load stl: "<< path << std::endl;
+		return;
+	}
 	const size_t numTris = tris.size() / 3;
 	for (size_t itri = 0; itri < numTris; ++itri) {
 		//std::cout << "coordinates of triangle " << itri << ": ";

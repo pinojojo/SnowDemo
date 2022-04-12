@@ -12,11 +12,15 @@ namespace GLCore::Utils {
 		void Update(glm::vec3 position,glm::vec3 front,float fov_y,float aspect_ratio);
 		void Update(glm::vec3 position, float yaw, float pitch, float roll, float fov_y, float aspect_ratio);
 
+		void Recalculate();
+
 		void SetProjection(float fvo_y,float aspect_ratio,float z_near,float z_far);
 		void SetView(glm::vec3 camera_position,glm::vec3 look_at,glm::vec3 camera_up);
 		void SetAspectRatio(float ratio);
 		void SetFOVY(float fovy);
 		void SetPosition(glm::vec3 posiiton);
+		void SetPositionOffset(glm::vec3 position_offset);
+		void SetPositionOffsetSpherical(glm::vec2 position_offset);
 		void SetStare(glm::vec3 stare);
 		
 		const glm::mat4& GetProjectionMatrix() const { return mat_projection_; }
@@ -25,7 +29,7 @@ namespace GLCore::Utils {
 
 
 	private:
-		// matrices
+		// matrices need calculated
 		glm::mat4 mat_projection_;
 		glm::mat4 mat_view_;
 		glm::mat4 mat_view_projection_;

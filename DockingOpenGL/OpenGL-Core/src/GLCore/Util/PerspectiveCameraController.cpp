@@ -7,6 +7,12 @@ GLCore::Utils::PerspectiveCameraController::PerspectiveCameraController()
 
 void GLCore::Utils::PerspectiveCameraController::OnUpdate(Timestep ts)
 {
+	// Update Camera matrices
+
+
+	camera_.Recalculate();
+
+
 }
 
 void GLCore::Utils::PerspectiveCameraController::OnEvent(Event& e)
@@ -28,7 +34,7 @@ void GLCore::Utils::PerspectiveCameraController::SetRatio(float ratio)
 
 bool GLCore::Utils::PerspectiveCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 {
-	// Change FOV
+	// Change camera's FOV
 	fov_y_ -= e.GetYOffset() * 0.8f;
 
 	// Set fov boundary
@@ -81,6 +87,10 @@ bool GLCore::Utils::PerspectiveCameraController::OnMouseMoved(MouseMovedEvent& e
 			dragged.y = e.GetY() - left_pressed_pos_.y;
 
 			std::cout << "jji" << dragged.x << ", " << dragged.y << std::endl;
+
+			// Dragged value will change camera's position in a way like mouse is on a spherial surface which centered at vec3(0,0,0)
+			
+			
 
 		}
 	}

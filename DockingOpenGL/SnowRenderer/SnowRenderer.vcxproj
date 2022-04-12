@@ -23,12 +23,18 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelRenderer.h" />
+    <ClInclude Include="Polyline.h" />
+    <ClInclude Include="Slice.h" />
+    <ClInclude Include="SlicedModel.h" />
     <ClInclude Include="stl_reader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelRenderer.cpp" />
+    <ClCompile Include="Polyline.cpp" />
+    <ClCompile Include="Slice.cpp" />
+    <ClCompile Include="SlicedModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL-Core\OpenGL-Core.vcxproj">
