@@ -1,5 +1,14 @@
 #pragma once
-class Slice
+
+#include "Polyline.h"
+
+
+namespace renderer 
 {
-};
+
+	class Slice
+	{
+	};
+
+}
 

@@ -1,15 +1,22 @@
 #pragma once
-
+#include "Slice.h"
 #include <string>
-
-class SlicedModel
+#include "../Parser/LayeredSVG.h"
+namespace renderer
 {
-public:
+	class SlicedModel
+	{
+	public:
 
-	void Load(std::string path) {
-
-	}
+		void Init(std::string path);
 
 
-};
+	private:
+		std::vector<Slice> slices_;
+		parser::LayeredSVG sliced_model_parser_;
+
+	};
+
+}
+
 

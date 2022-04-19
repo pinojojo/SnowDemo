@@ -9,6 +9,7 @@
     <ClInclude Include="SlicedModel.h" />
     <ClInclude Include="Slice.h" />
     <ClInclude Include="Polyline.h" />
+    <ClInclude Include="SliceModelRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Model.cpp" />
@@ -17,5 +18,6 @@
     <ClCompile Include="SlicedModel.cpp" />
     <ClCompile Include="Slice.cpp" />
     <ClCompile Include="Polyline.cpp" />
+    <ClCompile Include="SliceModelRenderer.cpp" />
   </ItemGroup>
 </Project>

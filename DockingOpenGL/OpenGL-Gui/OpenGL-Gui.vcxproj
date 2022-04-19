@@ -117,10 +117,15 @@
     <None Include="assets\shaders\infinite_grid.vert.glsl" />
     <None Include="assets\shaders\phong.frag" />
     <None Include="assets\shaders\phong.vert" />
+    <None Include="assets\shaders\polyline.frag" />
+    <None Include="assets\shaders\polyline.vert" />
     <None Include="assets\shaders\test.frag.glsl" />
     <None Include="assets\shaders\test.vert.glsl" />
     <None Include="assets\shaders\viewer.frag.glsl" />
     <None Include="assets\shaders\viewer.vert.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\fonts\char_table.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

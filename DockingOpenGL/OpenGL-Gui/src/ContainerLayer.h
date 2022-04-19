@@ -22,6 +22,7 @@ private:
 	void DrawDockSpace();
 
 	void CustomizeUI();
+	void CustomizeFont();
 
 };
 

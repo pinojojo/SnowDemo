@@ -1,0 +1,7 @@
+﻿  LayeredSVG.cpp
+D:\dev-slicer\SnowDemo\DockingOpenGL\OpenGL-Core\src\GLCore\Util\PerspectiveCamera.h(51,16): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\dev-slicer\SnowDemo\DockingOpenGL\Parser\LayeredSVG.cpp(68,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\dev-slicer\SnowDemo\DockingOpenGL\Parser\LayeredSVG.cpp(70,69): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\dev-slicer\SnowDemo\DockingOpenGL\Parser\LayeredSVG.cpp(79,54): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\dev-slicer\SnowDemo\DockingOpenGL\Parser\LayeredSVG.cpp(81,69): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Parser.vcxproj -> D:\dev-slicer\SnowDemo\DockingOpenGL\x64\Debug\Parser.lib

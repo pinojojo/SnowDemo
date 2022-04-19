@@ -64,10 +64,10 @@ void ViewerLayerer::OnImGuiRender()
 {
     // controler panel for viewer
     {
-        ImGui::Begin("view settings");
+        ImGui::Begin(u8"‘§¿¿…Ë÷√");
 
         // camera
-        static float vec4f[4] = { 5.0f, 5.0f, 5.0f, 0.44f };
+        static float vec4f[4] = { 5.0f, 100.0f, 50.0f, 0.44f };
         if (ImGui::DragFloat3("camera position", vec4f, 0.1f, -10.f, 100.0f))
         {
             camera_position_.x = vec4f[0];
@@ -130,6 +130,8 @@ void ViewerLayerer::OnImGuiRender()
             
         }
 
+
+        ImGui::Button("Slice");
        
 
 
@@ -144,7 +146,7 @@ void ViewerLayerer::OnImGuiRender()
 	//viewer window 
     {
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0.,0 });
-        ImGui::Begin("viewer");
+        ImGui::Begin(u8"ƒ£–Õ‘§¿¿");
 
         if (ImGui::IsWindowFocused())
         {

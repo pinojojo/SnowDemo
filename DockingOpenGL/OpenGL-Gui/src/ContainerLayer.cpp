@@ -14,7 +14,10 @@ void ContainerLayer::OnAttach()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//CustomizeUI();
+
+	CustomizeFont();
+
+	CustomizeUI();
  
 }
 
@@ -123,4 +126,36 @@ void ContainerLayer::CustomizeUI()
 	style->TabBorderSize = 1.0f;
 	style->TabRounding = 0.0f;
 	style->WindowRounding = 4.0f;
+}
+
+void ContainerLayer::CustomizeFont()
+{
+	ImGuiIO& io = ImGui::GetIO();
+	//io.Fonts->AddFontFromFileTTF("assets/fonts/simhei.ttf", 14.0f, nullptr, io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
+
+	FILE* inFile = fopen("assets/fonts/char_table.txt", "rb");
+	unsigned char* charBuf;
+	fseek(inFile, 0, SEEK_END);
+	int fileLen = ftell(inFile);
+	charBuf = new unsigned char[fileLen];
+	fseek(inFile, 0, SEEK_SET);
+	fread(charBuf, fileLen, 1, inFile);
+	fclose(inFile);
+	static ImVector<ImWchar> myRange;
+	ImFontGlyphRangesBuilder myGlyph;
+
+
+	myGlyph.AddText((const char*)charBuf);
+	myGlyph.BuildRanges(&myRange);
+
+	delete[] charBuf;
+	ImFontConfig config;
+	config.OversampleH = 4;
+	config.OversampleV = 4;
+	config.GlyphExtraSpacing.x = 0.5f;
+	io.Fonts->AddFontFromFileTTF("assets/fonts/NotoSansSC-Regular.otf", 18.0f, &config, myRange.Data);
+
+
+
+
 }

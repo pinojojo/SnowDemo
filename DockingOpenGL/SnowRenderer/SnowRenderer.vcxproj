@@ -26,6 +26,7 @@
     <ClInclude Include="Polyline.h" />
     <ClInclude Include="Slice.h" />
     <ClInclude Include="SlicedModel.h" />
+    <ClInclude Include="SliceModelRenderer.h" />
     <ClInclude Include="stl_reader.h" />
   </ItemGroup>
   <ItemGroup>
@@ -35,10 +36,14 @@
     <ClCompile Include="Polyline.cpp" />
     <ClCompile Include="Slice.cpp" />
     <ClCompile Include="SlicedModel.cpp" />
+    <ClCompile Include="SliceModelRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL-Core\OpenGL-Core.vcxproj">
       <Project>{20200b5f-8cd5-8354-15ca-7d2b817e7a58}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Parser\Parser.vcxproj">
+      <Project>{7a97d74d-2f08-4a22-a4db-7b913f99749a}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Slicer\Slicer.vcxproj">
       <Project>{cb13d548-5910-406c-bdb8-55f27fef8dae}</Project>

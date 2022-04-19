@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ContainerLayer.cpp" />
+    <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\SliceViewer.cpp" />
+    <ClCompile Include="src\ViewerLayerer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ContainerLayer.h" />
+    <ClInclude Include="src\SliceViewer.h" />
+    <ClInclude Include="src\ViewerLayerer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\infinite_grid.frag.glsl" />
+    <None Include="assets\shaders\infinite_grid.vert.glsl" />
+    <None Include="assets\shaders\phong.frag" />
+    <None Include="assets\shaders\phong.vert" />
+    <None Include="assets\shaders\test.frag.glsl" />
+    <None Include="assets\shaders\test.vert.glsl" />
+    <None Include="assets\shaders\viewer.frag.glsl" />
+    <None Include="assets\shaders\viewer.vert.glsl" />
+    <None Include="assets\shaders\polyline.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="assets\shaders\polyline.vert">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{fd1807bf-ff34-4ee9-81d5-f5c22090a4de}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\fonts\char_table.txt" />
+  </ItemGroup>
+</Project>
